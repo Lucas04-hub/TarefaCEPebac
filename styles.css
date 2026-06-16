@@ -1,0 +1,122 @@
+/* Fundo amarelo com degradê laranja */
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #ffe100 0%, #ff8c00 100%);
+  margin: 0;
+}
+
+/* Centraliza e cria caixa branca principal */
+.container {
+  background: white;
+  padding: 32px 32px 24px 32px;
+  border-radius: 15px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.09);
+  min-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Caixa do título separada */
+.titulo-box {
+  background: #f7f7f7;
+  padding: 18px 28px;
+  border-radius: 10px 10px 0 0;
+  margin-top: -32px;
+  margin-bottom: 22px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+/* Título centralizado */
+.titulo-box h1 {
+  margin: 0;
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+/* Organiza o formulário */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+form label {
+  margin-right: 6px;
+}
+
+form input {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #ffe100;
+    box-shadow: 0 0 0 2px #ffe10055;
+}
+
+form button {
+    padding: 8px 22px;
+    background: linear-gradient(90deg, #ffe100 70%, #ff8c00 100%);
+    color: #2c2c2c;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0 2px 7px rgba(0,0,0,0.06);
+    transition: filter 0.2s;
+    margin-top: 10px;
+}
+
+form button:hover {
+    filter: brightness(1.06);
+}
+
+@media (max-width: 500px) {
+  .container {
+    min-width: unset;
+    width: 96vw;
+    padding: 8vw 2vw 4vw 2vw;
+  }
+  .titulo-box {
+    font-size: 1em;
+    padding: 7vw 2vw 4vw 2vw;
+  }
+  .grid-form {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 9px;
+  }
+  form {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Organiza campos em duas colunas */
+.grid-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 18px;
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto 14px auto;
+}
+
+/* Sempre coloca o botão no centro após os campos */
+form button {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
