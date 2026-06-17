@@ -1,3 +1,15 @@
+function salvarDados() {
+    const endereco = {
+        cep: document.getElementById('cep').value,
+        logradouro: document.getElementById('logradouro').value,
+        bairro: document.getElementById('bairro').value,
+        cidade: document.getElementById('cidade').value,
+        estado: document.getElementById('estado').value,
+        numero: document.getElementById('numero').value
+    };
+    localStorage.setItem('endereco', JSON.stringify(endereco));
+}
+
 document.getElementById("cep").addEventListener("blur", (evento) => {
     const elemento = evento.target;
     const cepInformado = elemento.value;
@@ -13,6 +25,7 @@ document.getElementById("cep").addEventListener("blur", (evento) => {
                 document.getElementById('bairro').value = data.bairro;
                 document.getElementById('cidade').value = data.localidade;
                 document.getElementById('estado').value = data.uf;
+                salvarDados();
             } else {
                 alert("CEP não encontrado.");
             }
@@ -48,3 +61,7 @@ window.onload = function() {
         document.getElementById('numero').value = endereco.numero || '';
     }
 };
+
+document.querySelectorAll('input').forEach(function(input){
+    input.addEventListener('input', salvarDados);
+});
